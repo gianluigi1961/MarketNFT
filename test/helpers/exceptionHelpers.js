@@ -18,23 +18,10 @@ async function tryCatch(promise, message) {
 
 module.exports = {
     onlyOwner              : async function(promise) {return await tryCatch(promise, "caller is not the owner" );},
-    isEmptyCode            : async function(promise) {return await tryCatch(promise, "#code-empty#" );},
-    artworkExist           : async function(promise) {return await tryCatch(promise, "#artwork-exist#" );},
-    artworkNotExist        : async function(promise) {return await tryCatch(promise, "#artwork-not-exist#" );},
+    checkErrorCode         : async function(promise, error_code) {return await tryCatch(promise, error_code );},
     
     notCurrentOwner        : async function(promise) {return await tryCatch(promise, "#not-current-owner#" );},
-    currentOwner           : async function(promise) {return await tryCatch(promise, "#current-owner#" );},
-    notForSale             : async function(promise) {return await tryCatch(promise, "#not-for-sale#" );},
-    forSale                : async function(promise) {return await tryCatch(promise, "#for-sale#" );},
-    valueZero              : async function(promise) {return await tryCatch(promise, "#value-zero#" );},
-    ownerCannotRemove      : async function(promise) {return await tryCatch(promise, "#cannot-remove#" );},
-    validPrice             : async function(promise) {return await tryCatch(promise, "#valid-price#" );},
-
-    amountExceedBalance             : async function(promise) {return await tryCatch(promise, "#amount-exceed-balance#" );},
-    balanceZero             : async function(promise) {return await tryCatch(promise, "#balance-zero#" );},
-
     
-
 /*
     catchRevert            : async function(promise) {await tryCatch(promise, "revert"             );},
     catchOutOfGas          : async function(promise) {await tryCatch(promise, "out of gas"         );},
