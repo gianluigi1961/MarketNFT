@@ -1,15 +1,9 @@
 # Market NFT smart contract
-
-
-> We simulate <br>
-> Customers can <br>
-
-
+MarketNFT : a Simple smart contract for the sale of NFTs
+is ERC721 contract
 
 
 ## Storage data
-
-
 
 
 ## Events
