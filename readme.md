@@ -20,6 +20,54 @@ Trasfer (NFT sale) event emitted from ERC721<br>
 The owner of the NFT with the given NFT name<br>
 @_name: name of the NFT<br>
 
+<b>unpause</b><br>
+The contract owner start the NFTs sales<br>
+
+
+<b>mint</b>string memory _name, string memory _description, uint _price, string memory _url<br>
+The contract owner mint the NFTs <br>
+@_name: name of the NFT<br>
+@_description: description of the NFT<br>
+@_price: price of the NFT<br>
+@_url: NFT json metadata url<br>
+
+
+<b>mintMultiple</b>string[] memory _name, string[] memory _description, uint[] _price, string[] memory _url<br>
+The contract owner mint a collection of NFTs <br>
+@_name: array of name of the NFT<br>
+@_description: array of description of the NFT<br>
+@_price: array of price of the NFT<br>
+@_url: array of NFT json metadata url<br>
+
+
+
+<b>buy</b>(string memory _name)<br>
+Customers buy the NFT by name<br>
+@_name: name of the NFT<br>
+
+
+
+<b>approveByName</b>(address _to, string memory _name)<br>
+The NFTs owner approve<br>
+@_to: address to approve<br>
+@_name: name of the NFT<br>
+
+
+<b>transferFromByName</b>(address _from, address _to, string memory _name)<br>
+The NFTs approved address transfer to new address<br>
+@_from: address from transfer<br>
+@_to: address to transfer<br>
+@_name: name of the NFT<br>
+
+
+<b>walletOf<b>(address _owner)<br>
+The wallet of the specified address<br>
+@_owner  : wallet address<br>
+
+
+<b>getBalance<b><br>
+Return the current contract balance <br>
+
 
 
 
