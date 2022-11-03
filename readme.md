@@ -84,10 +84,10 @@ Return the Metadata token uri <br>
 <br>
 
 ## Modifiers<br>
-<b>isNotMinted<b>(string memory _name)<br><br>
+<b>isNotMinted</b>(string memory _name)<br>
 
-<b>isMintedById</b>(uint _id)<br><br>
+<b>isMintedById</b>(uint _id)<br>
 
-<b>isMinted</b>(string memory _name)<br><br>
+<b>isMinted</b>(string memory _name)<br>
 
 <b>isOpenSale</b>
