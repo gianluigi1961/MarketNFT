@@ -1,4 +1,4 @@
-# Market NFT smart contract
+# Market NFT ERC721 smart contract
 MarketNFT : a Simple smart contract for the sale of NFTs<br>
 Is ERC721 contract
 
