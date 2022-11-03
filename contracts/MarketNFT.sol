@@ -38,7 +38,7 @@ contract MarketNFT is Ownable, Pausable, ERC721URIStorage, ERC721Enumerable{
   mapping(string => uint) names;
   
   /*
-  * The temporary NFT url
+  * The temporary NFT json metadata url
   */
   string private tempUri;  
   
@@ -213,7 +213,7 @@ contract MarketNFT is Ownable, Pausable, ERC721URIStorage, ERC721Enumerable{
   * The wallet of the specified address
   *
   * Requirements:  
-  * - `_owner`   : address wallet
+  * - `_owner`   : wallet address
   *
   * Returns
   * Array of token id
@@ -264,6 +264,9 @@ contract MarketNFT is Ownable, Pausable, ERC721URIStorage, ERC721Enumerable{
 
   /*
   * Return the Metadata token uri 
+  *
+  *   Requirements:  
+  *   - `_id` : id of the NFT
   *
   * Return 
   * Json Metadata in base64 format
