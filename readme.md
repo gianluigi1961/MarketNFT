@@ -3,6 +3,7 @@ MarketNFT : a Simple smart contract for the sale of NFTs<br>
 Is ERC721 contract
 
 
+
 ## Storage data
 mapping(string => uint) prices: Prive of NFTs <br>
 mapping(string => uint) names: NFT id (by name)<br>
