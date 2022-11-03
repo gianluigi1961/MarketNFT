@@ -4,7 +4,9 @@ Is ERC721 contract
 
 
 ## Storage data
-
+mapping(string => uint) prices: Prive of NFTs <br>
+ mapping(string => uint) names: NFT id (by name)<br>
+ 
 
 ## Events
 Trasfer (mint) event emitted from ERC721<br>
