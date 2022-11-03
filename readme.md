@@ -24,7 +24,7 @@ The owner of the NFT with the given NFT name<br>
 The contract owner start the NFTs sales<br>
 
 
-<b>mint</b>string memory _name, string memory _description, uint _price, string memory _url<br>
+<b>mint</b>(string memory _name, string memory _description, uint _price, string memory _url)<br>
 The contract owner mint the NFTs <br>
 @_name: name of the NFT<br>
 @_description: description of the NFT<br>
@@ -32,7 +32,7 @@ The contract owner mint the NFTs <br>
 @_url: NFT json metadata url<br>
 
 
-<b>mintMultiple</b>string[] memory _name, string[] memory _description, uint[] _price, string[] memory _url<br>
+<b>mintMultiple</b>(string[] memory _name, string[] memory _description, uint[] _price, string[] memory _url)<br>
 The contract owner mint a collection of NFTs <br>
 @_name: array of name of the NFT<br>
 @_description: array of description of the NFT<br>
@@ -65,8 +65,18 @@ The wallet of the specified address<br>
 @_owner  : wallet address<br>
 
 
-<b>getBalance<b><br>
+<b>getBalance</b><br>
 Return the current contract balance <br>
+
+
+<b>withdraw</b>(uint _amount) <br>
+Owner can withdraw Contract balance<br>
+@_amount: amount to withdraw<br>
+
+
+<b>tokenURI</b>(uint256 _id)<br>
+Return the Metadata token uri <br>
+@_id : id of the NFT<br>
 
 
 
@@ -74,4 +84,10 @@ Return the current contract balance <br>
 <br>
 
 ## Modifiers<br>
+<b>isNotMinted<b>(string memory _name)<br><br>
 
+<b>isMintedById</b>(uint _id)<br><br>
+
+<b>isMinted</b>(string memory _name)<br><br>
+
+<b>isOpenSale</b>
