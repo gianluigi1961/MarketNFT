@@ -60,7 +60,7 @@ The NFTs approved address transfer to new address<br>
 @_name: name of the NFT<br>
 
 
-<b>walletOf<b>(address _owner)<br>
+<b>walletOf</b>(address _owner)<br>
 The wallet of the specified address<br>
 @_owner  : wallet address<br>
 
