@@ -16,6 +16,11 @@ Trasfer (NFT sale) event emitted from ERC721<br>
 
 ## Public functions<br>
 
+<b>ownerOf</b>(string memory _name)<br>
+The owner of the NFT with the given NFT name<br>
+@_name: name of the NFT<br>
+
+
 
 
 <br>
