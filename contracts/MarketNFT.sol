@@ -14,15 +14,13 @@ import "../node_modules/@openzeppelin/contracts/token/ERC721/extensions/ERC721En
 
 /*
 *
-*
-*
+* MarketNFT : a Simple smart contract for the sale of NFTs
+* is ERC721 contract
 *
 */
 contract MarketNFT is Ownable, Pausable, ERC721URIStorage, ERC721Enumerable{
   using Strings for uint;
   using Counters for Counters.Counter;
-  
-
 
   /*
   * The ID of the last NTF minted
@@ -43,17 +41,14 @@ contract MarketNFT is Ownable, Pausable, ERC721URIStorage, ERC721Enumerable{
   * The temporary NFT url
   */
   string private tempUri;  
-      
-
-  /* Events */
-
-
-
-
-
+  
   /*
+  * Contract constructor
   *
-  *
+  *   Requirements:  
+  *   - `_name` : name of the contract
+  *   - `_symbol` : symbol of the contract
+  *   - `_tempUri` : The temporary NFT json metadata url, returned when sale is not open
   */
   constructor(string memory _name, 
               string memory _symbol, 
@@ -68,7 +63,10 @@ contract MarketNFT is Ownable, Pausable, ERC721URIStorage, ERC721Enumerable{
   }
   
   /*
-  * The owner of the NFT with the given name
+  * The owner of the NFT with the given NFT name
+  *
+  * Requirements:  
+  * - `_name` : name of the NFT
   *
   * Return
   * Address of the NFT owner
@@ -79,14 +77,21 @@ contract MarketNFT is Ownable, Pausable, ERC721URIStorage, ERC721Enumerable{
   }
 
   /*
-  * The owner start the NFTs sales
+  * The contract owner start the NFTs sales
   */
   function unpause() public onlyOwner{
     _unpause();
   }
 
   /*
-  * The owner mint the NFTs 
+  * The contract owner mint the NFTs 
+  *
+  * Requirements:  
+  * - `_name` : name of the NFT
+  * - `_description` : description of the NFT
+  * - `_price` : price of the NFT
+  * - `_url` : NFT json metadata url
+  * 
   */
   function mint(string memory _name, 
                 string memory _description, 
@@ -124,10 +129,13 @@ contract MarketNFT is Ownable, Pausable, ERC721URIStorage, ERC721Enumerable{
   }
 
   /*
-  * The owner mint a collection of NFTs
+  * The contract owner mint a collection of NFTs
   * 
-  * Return:
-  * The NFTs array ID
+  * Requirements:  
+  * - `_name`         : array of name of the NFT
+  * - `_description`  : array of description of the NFT
+  * - `_price`        : array of price of the NFT
+  * - `_url`          : array of NFT json metadata url  
   */
   function mintMultiple(string[] memory _name, 
                         string[] memory _description, 
@@ -146,7 +154,10 @@ contract MarketNFT is Ownable, Pausable, ERC721URIStorage, ERC721Enumerable{
   }
 
   /*
-  * 
+  * Customers buy the NFT by name
+  *
+  * Requirements:  
+  * - `_name` : name of the NFT
   */
   function buy(string memory _name) 
                 public 
@@ -165,19 +176,56 @@ contract MarketNFT is Ownable, Pausable, ERC721URIStorage, ERC721Enumerable{
   }
   
   /*
+  * The NFTs owner approve
+  *
+  *
+  * Requirements:  
+  * - `_to`   : address to approve
+  * - `_name` : name of the NFT
+  *
+  * Returns
+  * bool
+  */
+  function approveByName(address _to, string memory _name) public isMinted(_name) returns(bool){
+    uint id = names[_name];
+    ERC721.approve(_to, id);
+    return true;
+  }
+
+  /*
+  * The NFTs approved address transfer to new address
+  *
+  * Requirements:  
+  * - `_from`   : address from transfer
+  * - `_to`     : address to transfer
+  * - `_name`   : name of the NFT
+  *
+  * Returns
+  * bool
+  */
+  function transferFromByName(address _from, address _to, string memory _name) public isMinted(_name) returns(bool){
+    uint id = names[_name];
+    ERC721.transferFrom(_from, _to, id);
+    return true;
+  }
+
+  /*
   * The wallet of the specified address
+  *
+  * Requirements:  
+  * - `_owner`   : address wallet
   *
   * Returns
   * Array of token id
   */
-  function walletOf(address owner) public view returns(string[] memory){
+  function walletOf(address _owner) public view returns(string[] memory){
     
-    uint index = ERC721.balanceOf(owner);
+    uint index = ERC721.balanceOf(_owner);
     string[] memory wallet = new string[](index);
     uint token_id;    
     
     for(uint x = 0; x < index; x++){
-      token_id = tokenOfOwnerByIndex(owner, x);    
+      token_id = tokenOfOwnerByIndex(_owner, x);    
       wallet[x] = token_id.toString();
     }
 
