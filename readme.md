@@ -2,7 +2,8 @@
 MarketNFT : a Simple smart contract for the sale of NFTs<br>
 is ERC721 contract
 
-
+Etherscan url:<br>
+https://goerli.etherscan.io/address/0xFeb5E20605730914Ec94e165A57A3648A8019F3B#code<br><br>
 
 ## Storage data
 mapping(string => uint) prices: Prive of NFTs <br>
